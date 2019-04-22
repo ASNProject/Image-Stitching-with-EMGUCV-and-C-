@@ -1,0 +1,74 @@
+Imports Emgu.CV
+Imports Emgu.Util
+Imports Emgu.CV.Util
+Imports Emgu.CV.Structure
+Imports Emgu.CV.Stitching
+Imports Emgu.CV.Features2D
+
+
+
+Public Class Form1
+
+    'Dim capturez As Capture = New Capture
+    Dim stitchz As Stitcher = New Stitcher(False)
+    Dim masukkan As Integer = 0
+    Dim jumlah As Integer = 1 'Maksimal yang digunakan untuk stitching
+    Dim citra(jumlah) As Image(Of Bgr, Byte)
+
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+
+        citra(masukkan) = New Image(Of Bgr, Byte)(PictureBox2.Image)
+        'imagez(num) = capturez.RetrieveBgrFrame This won't work.
+
+        If masukkan = jumlah Then
+            Try
+                Dim result As Image(Of Bgr, Byte) = stitchz.Stitch(citra)
+                PictureBox1.Image = result.ToBitmap
+                Me.Text = "STITCHING"
+            Catch ex As Exception
+                Me.Text = "FAILED"
+            End Try
+            masukkan = 0
+        Else
+            masukkan = masukkan + 1
+        End If
+
+    End Sub
+
+    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
+
+        'PictureBox2.Image = capturez.RetrieveBgrFrame.ToBitmap
+
+    End Sub
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Timer1.Start()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim browse As New OpenFileDialog
+        browse.Filter = "Choose Image(*.jpg;*.png;*.gif)|*.jpg;*.png;*.gif"
+
+        If browse.ShowDialog = DialogResult.OK Then
+            PictureBox2.Image = Image.FromFile(browse.FileName)
+        End If
+
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        SaveFileDialog1.ShowDialog()
+
+        If SaveFileDialog1.FileName > "" Then
+            PictureBox1.Image.Save(SaveFileDialog1.FileName)
+        End If
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs)
+        'TextBox1.Text = Convert.ToInt32(TextBox1.Text)
+    End Sub
+
+    Private Sub Label11_Click(sender As Object, e As EventArgs) Handles Label11.Click
+
+    End Sub
+End Class
