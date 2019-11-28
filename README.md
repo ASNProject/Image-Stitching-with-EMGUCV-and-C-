@@ -19,19 +19,19 @@ password please confirm me in asnproject02@gmail.com or arief.dulep02@gmail.com
 
 ![b2](https://user-images.githubusercontent.com/49858542/69833148-9a1f6600-1264-11ea-8ba2-2761e17c1771.jpg)
 
-a. Change the value in "Dim jumlah" according to the image to be entered
+ a. Change the value in "Dim jumlah" according to the image to be entered
 
-b. Then select "Debug Program"
+ b. Then select "Debug Program"
 
 5. Display the Basic Panorama EmguCV Application
  
 ![b3](https://user-images.githubusercontent.com/49858542/69833149-9ab7fc80-1264-11ea-9ba7-c7c10d486585.jpg)
  
-a. The "Stitch" button is used to start stitching images
+ a. The "Stitch" button is used to start stitching images
 
-b. "Browse" button to select an image from the storage folder
+ b. "Browse" button to select an image from the storage folder
 
-c. The "Save" button is used to save the resulting panorama image
+ c. The "Save" button is used to save the resulting panorama image
 
 6. Select the "Browse" button to enter the image from the storage folder
 
